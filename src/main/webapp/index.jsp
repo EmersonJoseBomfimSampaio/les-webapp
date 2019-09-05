@@ -2,6 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-<t:managementLayout location="Home">
+<t:main location="Home">
 	Here is some example of content
-</t:managementLayout>
+</t:main>

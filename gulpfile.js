@@ -1,7 +1,6 @@
-const { src, dest, parallel}  = require('gulp');
+const { src, dest, watch, parallel}  = require('gulp');
 const gulpSass			= require('gulp-sass');
 const gulpBrowserify    = require('gulp-browserify');
-
 
 function sassTask() {
 	return  src('./src/main/resources/sass/**/*.scss')
@@ -18,13 +17,11 @@ function sassTask() {
 			.pipe(dest('./src/main/webapp/css'));
 }
 
-
 function jsTask() {
 	return	src('./src/main/resources/js/**/*.js')
 			.pipe(gulpBrowserify({}))
 			.pipe(dest('./src/main/webapp/js'));
 }
-
 
 function iconsTask() {
     return  src('./node_modules/@fortawesome/fontawesome-free/webfonts/*')
@@ -32,3 +29,13 @@ function iconsTask() {
 };
 
 module.exports.default = parallel(sassTask, jsTask, iconsTask);
+
+function watchSass() {
+	return watch('./src/main/resources/sass/**/*.scss', {ignoreInitial: false}, sassTask);
+};
+
+function watchJs() { 
+	return watch('./src/main/resources/js/**/*.js', {ignoreInitial: false}, jsTask);
+};
+
+module.exports.watch  = parallel(watchSass, watchJs);
