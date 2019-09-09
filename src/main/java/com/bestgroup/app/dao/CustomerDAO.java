@@ -4,34 +4,32 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.bestgroup.app.domain.Customer;
 import com.bestgroup.core.dao.DAO;
+import com.bestgroup.core.domain.Entity;
 
-public class CustomerDAO extends DAO<Customer> {
-
+public class CustomerDAO extends DAO{
+	
 	public CustomerDAO(Connection connection) {
 		super(connection);
 	}
 
 	@Override
-	public List<Customer> read(Customer entity) throws SQLException {
+	public List<Entity> read(Entity entity) throws SQLException {
 		return null;
 	}
 
 	@Override
-	public Customer create(Customer entity) throws SQLException {
-		
-		return entity;
-	}
-
-	@Override
-	public Customer update(Customer entity) throws SQLException {
+	public Entity create(Entity entity) throws SQLException {
 		return null;
 	}
 
 	@Override
-	public Customer delete(Customer entity) throws SQLException {
+	public Entity update(Entity entity) throws SQLException {
 		return null;
 	}
 
+	@Override
+	public Entity delete(Entity entity) throws SQLException {
+		return null;
+	}
 }

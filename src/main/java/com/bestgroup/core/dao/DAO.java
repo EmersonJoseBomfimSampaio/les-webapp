@@ -6,25 +6,20 @@ import java.util.List;
 
 import com.bestgroup.core.domain.Entity;
 
-public abstract class DAO<E extends Entity> {
+public abstract class DAO {
 	
 	protected Connection connection;
 	protected boolean commit;
 	
 	public DAO(Connection connection) { 
-		this(connection, true);
-	}
-	
-	public DAO(Connection connection,boolean commit) { 
 		this.connection = connection;
-		this.commit = commit;
 	}
 	
-	public abstract List<E> read(E entity) throws SQLException;
+	public abstract List<Entity> read(Entity entity) throws SQLException;
 	
-	public abstract E create(E entity) throws SQLException;
+	public abstract Entity create(Entity entity) throws SQLException;
 
-	public abstract E update(E entity) throws SQLException;
+	public abstract Entity update(Entity entity) throws SQLException;
 
-	public abstract E delete(E entity) throws SQLException;
+	public abstract Entity delete(Entity entity) throws SQLException;
 }

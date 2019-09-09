@@ -12,6 +12,6 @@ public class CreateCustomer implements Strategy {
 	
 	@Override
 	public void handle(Entity entity, Result result) {
-		result.getEntities().add(entity);
+		
 	}
 }

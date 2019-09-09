@@ -1,4 +1,4 @@
-package com.bestgroup.app.web.filter.entity;
+package com.bestgroup.app.web.filter.entity.admin;
 
 import java.io.IOException;
 
@@ -11,13 +11,13 @@ import com.bestgroup.core.facade.Result;
 import com.bestgroup.web.filter.ViewHelperFilter;
 
 @WebFilter(urlPatterns = {
-		"/categories.create",
-		"/categories.read",
-		"/categories.update",
-		"/categories.delete"})
-public class CategoryViewHelper extends ViewHelperFilter {
+		"/admin/categories.create",
+		"/admin/categories.read",
+		"/admin/categories.update",
+		"/admin/categories.delete"})
+public class AdminCategoryViewHelper extends ViewHelperFilter {
 	
-	public CategoryViewHelper() {
+	public AdminCategoryViewHelper() {
 	}
 
 	@Override

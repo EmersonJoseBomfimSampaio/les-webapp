@@ -1,8 +1,22 @@
 package com.bestgroup.app.domain;
 
-import com.bestgroup.core.domain.Entity;
-
-public class Permission extends Entity {
-	String name; 
-	String description;
+public class Permission extends ApplicationEntity {
+	protected String name; 
+	protected String description;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

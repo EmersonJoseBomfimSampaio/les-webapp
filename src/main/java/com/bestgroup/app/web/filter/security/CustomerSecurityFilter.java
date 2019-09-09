@@ -10,13 +10,12 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bestgroup.app.domain.Customer;
 import com.bestgroup.web.filter.BaseFilter;
 
-@WebFilter("/customer/*")
+@WebFilter("/*")
 public class CustomerSecurityFilter extends BaseFilter {
 
-	List<String> exceptions = new ArrayList<>();
+	List<String> requiresLogin = new ArrayList<>();
 	
 	public CustomerSecurityFilter() { 
 		
@@ -25,13 +24,6 @@ public class CustomerSecurityFilter extends BaseFilter {
 	@Override
 	public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		
-		Customer customer = (Customer) request.getSession().getAttribute("customer");
-		
-		if(customer != null || exceptions.contains(request.getRequestURI())) { 
-			chain.doFilter(request, response);
-		} else  { 
-			response.sendRedirect("/les-webapp/login/");
-		}
+		chain.doFilter(request, response);
 	}
 }

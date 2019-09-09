@@ -2,11 +2,10 @@ package com.bestgroup.app.domain;
 
 public class User extends ApplicationEntity {
 	
-	protected String name; 
-	protected String email; 
+	protected String name;
+	protected String email;
 	protected String password;
 	protected String passwordConfirmation;
-	protected Role role;
 	
 	public String getName() {
 		return name;

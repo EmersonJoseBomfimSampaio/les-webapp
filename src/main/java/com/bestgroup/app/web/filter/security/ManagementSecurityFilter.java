@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bestgroup.app.domain.Employee;
 import com.bestgroup.web.filter.BaseFilter;
 
 @WebFilter("/management/*")
@@ -26,12 +25,7 @@ public class ManagementSecurityFilter extends BaseFilter {
 	public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		Employee customer = (Employee) request.getSession().getAttribute("employee");
+		chain.doFilter(request, response);
 		
-		if(customer != null || exceptions.contains(request.getRequestURI())) { 
-			chain.doFilter(request, response);
-		} else  { 
-			response.sendRedirect("/les-webapp/management/login/");
-		}
 	}
 }
